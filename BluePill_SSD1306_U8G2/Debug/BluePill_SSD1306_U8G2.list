@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00003a44  0800010c  0800010c  0000110c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000fac  08003b50  08003b50  00004b50  2**2
+  2 .rodata       00000884  08003b50  08003b50  00004b50  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08004afc  08004afc  0000600c  2**0
+  3 .ARM.extab    00000000  080043d4  080043d4  0000600c  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000000  08004afc  08004afc  0000600c  2**0
+  4 .ARM          00000000  080043d4  080043d4  0000600c  2**0
                   CONTENTS, READONLY
-  5 .preinit_array 00000000  08004afc  08004afc  0000600c  2**0
+  5 .preinit_array 00000000  080043d4  080043d4  0000600c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08004afc  08004afc  00005afc  2**2
+  6 .init_array   00000004  080043d4  080043d4  000053d4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08004b00  08004b00  00005b00  2**2
+  7 .fini_array   00000004  080043d8  080043d8  000053d8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000000c  20000000  08004b04  00006000  2**2
+  8 .data         0000000c  20000000  080043dc  00006000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000530  2000000c  08004b10  0000600c  2**2
+  9 .bss          00000530  2000000c  080043e8  0000600c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  2000053c  08004b10  0000653c  2**0
+ 10 ._user_heap_stack 00000604  2000053c  080043e8  0000653c  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0000600c  2**0
                   CONTENTS, READONLY
@@ -283,7 +283,7 @@ int main(void)
   u8g2_ClearDisplay(&myDisplay);
  800026c:	480f      	ldr	r0, [pc, #60]	@ (80002ac <main+0x70>)
  800026e:	f001 ff15 	bl	800209c <u8g2_ClearDisplay>
-  u8g2_SetFont(&myDisplay, u8g2_font_timB14_tf);
+  u8g2_SetFont(&myDisplay, u8g2_font_6x10_tf);
  8000272:	490f      	ldr	r1, [pc, #60]	@ (80002b0 <main+0x74>)
  8000274:	480d      	ldr	r0, [pc, #52]	@ (80002ac <main+0x70>)
  8000276:	f002 fce1 	bl	8002c3c <u8g2_SetFont>
@@ -313,7 +313,7 @@ int main(void)
  800029e:	e7fd      	b.n	800029c <main+0x60>
  80002a0:	0800014d 	.word	0x0800014d
  80002a4:	08000179 	.word	0x08000179
- 80002a8:	08004a80 	.word	0x08004a80
+ 80002a8:	08004358 	.word	0x08004358
  80002ac:	2000007c 	.word	0x2000007c
  80002b0:	08003b88 	.word	0x08003b88
  80002b4:	08003b50 	.word	0x08003b50
@@ -942,7 +942,7 @@ void SystemInit (void)
  800057e:	4770      	bx	lr
  8000580:	20000000 	.word	0x20000000
  8000584:	2000000c 	.word	0x2000000c
- 8000588:	08004b04 	.word	0x08004b04
+ 8000588:	080043dc 	.word	0x080043dc
  800058c:	2000000c 	.word	0x2000000c
  8000590:	2000053c 	.word	0x2000053c
 
@@ -9691,10 +9691,10 @@ static uint8_t u8x8_d_ssd1306_sh1106_generic(u8x8_t *u8x8, uint8_t msg, uint8_t 
  800382a:	46bd      	mov	sp, r7
  800382c:	bd80      	pop	{r7, pc}
  800382e:	bf00      	nop
- 8003830:	08004ac4 	.word	0x08004ac4
- 8003834:	08004acc 	.word	0x08004acc
- 8003838:	08004ad4 	.word	0x08004ad4
- 800383c:	08004adc 	.word	0x08004adc
+ 8003830:	0800439c 	.word	0x0800439c
+ 8003834:	080043a4 	.word	0x080043a4
+ 8003838:	080043ac 	.word	0x080043ac
+ 800383c:	080043b4 	.word	0x080043b4
 
 08003840 <u8x8_d_ssd1306_128x64_noname>:
   /* pixel_width = */ 128,
@@ -9763,8 +9763,8 @@ uint8_t u8x8_d_ssd1306_128x64_noname(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int,
  8003896:	46bd      	mov	sp, r7
  8003898:	bd80      	pop	{r7, pc}
  800389a:	bf00      	nop
- 800389c:	08004a8c 	.word	0x08004a8c
- 80038a0:	08004ae4 	.word	0x08004ae4
+ 800389c:	08004364 	.word	0x08004364
+ 80038a0:	080043bc 	.word	0x080043bc
 
 080038a4 <u8x8_d_helper_display_setup_memory>:
   this is a helper function for the U8X8_MSG_DISPLAY_SETUP_MEMORY function.
@@ -10221,10 +10221,10 @@ void u8x8_Setup(u8x8_t *u8x8, u8x8_msg_cb display_cb, u8x8_msg_cb cad_cb, u8x8_m
  8003b22:	4798      	blx	r3
  8003b24:	3601      	adds	r6, #1
  8003b26:	e7f2      	b.n	8003b0e <__libc_init_array+0x1e>
- 8003b28:	08004afc 	.word	0x08004afc
- 8003b2c:	08004afc 	.word	0x08004afc
- 8003b30:	08004afc 	.word	0x08004afc
- 8003b34:	08004b00 	.word	0x08004b00
+ 8003b28:	080043d4 	.word	0x080043d4
+ 8003b2c:	080043d4 	.word	0x080043d4
+ 8003b30:	080043d4 	.word	0x080043d4
+ 8003b34:	080043d8 	.word	0x080043d8
 
 08003b38 <_init>:
  8003b38:	b5f8      	push	{r3, r4, r5, r6, r7, lr}

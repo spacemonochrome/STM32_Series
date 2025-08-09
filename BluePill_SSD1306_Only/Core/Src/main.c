@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ssd1306.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +57,10 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+char buffer [16];
 
+int num = 123;
+float flt = 123.456;
 /* USER CODE END 0 */
 
 /**
@@ -96,6 +100,20 @@ int main(void)
   SSD1306_GotoXY (10, 30);
   SSD1306_Puts ("WORLD !!", &Font_11x18, 1);
   SSD1306_UpdateScreen(); // update screen
+  HAL_Delay(1000);
+
+  SSD1306_Clear();
+
+  sprintf (buffer, "number %d", num);
+  SSD1306_GotoXY (10,10);
+  SSD1306_Puts (buffer, &Font_11x18, 1);
+  SSD1306_UpdateScreen();
+
+  memset(buffer, 0, sizeof(buffer));
+  sprintf (buffer, "float %.2f", flt);
+  SSD1306_GotoXY (10,30);
+  SSD1306_Puts (buffer, &Font_11x18, 1);
+  SSD1306_UpdateScreen();
   /* USER CODE END 2 */
 
   /* Infinite loop */

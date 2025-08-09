@@ -57,7 +57,6 @@ static void MX_I2C1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 MPU6050_t MPU6500;
-
 uint32_t time_elapsed;
 /* USER CODE END 0 */
 
@@ -95,7 +94,6 @@ int main(void)
   MPU6050_Init(&hi2c1);
   MPU6050_Calibration_offset(&hi2c1, &MPU6500);
   DWT_Init();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */

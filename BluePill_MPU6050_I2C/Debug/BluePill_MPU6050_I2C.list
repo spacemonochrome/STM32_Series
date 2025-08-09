@@ -35,17 +35,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_rnglists 000005ce  00000000  00000000  00011870  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016c95  00000000  00000000  00011e3e  2**0
+ 16 .debug_macro  00016ca3  00000000  00000000  00011e3e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000a36f  00000000  00000000  00028ad3  2**0
+ 17 .debug_line   0000a377  00000000  00000000  00028ae1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008257a  00000000  00000000  00032e42  2**0
+ 18 .debug_str    0008257a  00000000  00000000  00032e58  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000b53bc  2**0
+ 19 .comment      00000043  00000000  00000000  000b53d2  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000231c  00000000  00000000  000b5400  2**2
+ 20 .debug_frame  0000231c  00000000  00000000  000b5418  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000070  00000000  00000000  000b771c  2**0
+ 21 .debug_line_str 00000070  00000000  00000000  000b7734  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2721,11 +2721,11 @@ void MPU6050_Read_All(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct)
  8001a46:	f001 f845 	bl	8002ad4 <HAL_I2C_Mem_Read>
  8001a4a:	4603      	mov	r3, r0
  8001a4c:	73fb      	strb	r3, [r7, #15]
+
     if (status != HAL_OK)
     {
     	// hata dondur
 	}
-
     DataStruct->Accel_X_RAW = ((int16_t)(Rec_Data[0] << 8 | Rec_Data[1])) - DataStruct->Accel_X_RAW_K;
  8001a4e:	4b80      	ldr	r3, [pc, #512]	@ (8001c50 <MPU6050_Read_All+0x228>)
  8001a50:	781b      	ldrb	r3, [r3, #0]
@@ -2962,7 +2962,7 @@ void MPU6050_Read_All(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct)
  8001c5c:	42121eb8 	.word	0x42121eb8
 
 08001c60 <DWT_Init>:
-
+    DataStruct->KalmanAngleZ += DataStruct->Gz * dt_g;
     dt_g = DWT_GetDeltaMicros(zaman) * 1e-6;
 }
 

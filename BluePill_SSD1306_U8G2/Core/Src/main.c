@@ -22,7 +22,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "u8g2.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -143,7 +142,7 @@ int main(void)
   u8g2_SetPowerSave(&myDisplay, 0); // wake up display
 
   u8g2_ClearDisplay(&myDisplay);
-  u8g2_SetFont(&myDisplay, u8g2_font_timB14_tf);
+  u8g2_SetFont(&myDisplay, u8g2_font_6x10_tf);
   u8g2_DrawStr(&myDisplay, 0,15,"Hello world");
   u8g2_DrawCircle(&myDisplay, 60, 30, 10, U8G2_DRAW_ALL);
   u8g2_SendBuffer(&myDisplay);

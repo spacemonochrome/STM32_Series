@@ -166,7 +166,6 @@ void MPU6050_Read_WithKalman(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct, uin
 }
 
 
-
 void MPU6050_Calc_Kalman(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct, uint32_t zaman)
 {
 
@@ -236,7 +235,6 @@ void MPU6050_Read_All(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct)
     {
     	// hata dondur
 	}
-
     DataStruct->Accel_X_RAW = ((int16_t)(Rec_Data[0] << 8 | Rec_Data[1])) - DataStruct->Accel_X_RAW_K;
     DataStruct->Accel_Y_RAW = ((int16_t)(Rec_Data[2] << 8 | Rec_Data[3])) - DataStruct->Accel_Y_RAW_K;
     DataStruct->Accel_Z_RAW = ((int16_t)(Rec_Data[4] << 8 | Rec_Data[5])) - DataStruct->Accel_Z_RAW_K;
@@ -280,7 +278,7 @@ void MPU6050_Calc_Kalman_DMA(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct, uin
 
     double roll = atan2(DataStruct->Ay, sqrt(DataStruct->Ax * DataStruct->Ax + DataStruct->Az * DataStruct->Az)) * RAD_TO_DEG;
     double pitch = atan2(-DataStruct->Ax, DataStruct->Az) * RAD_TO_DEG;
-    //dt_g = Timer_GetElapsed(htim, zaman) * 1e-6;
+    //dt_g = DWT_GetDeltaMicros(zaman) * 1e-6;
 
     // Pitch için ±90° kontrolü (Gimbal lock önleme)
     if ((pitch < -90 && DataStruct->KalmanAngleY > 90) || (pitch > 90 && DataStruct->KalmanAngleY < -90)) {
@@ -304,7 +302,6 @@ void MPU6050_Calc_Kalman_DMA(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct, uin
     }
     // Yaw için jiroskop entegrasyonu
     DataStruct->KalmanAngleZ += DataStruct->Gz * dt_g;
-
     dt_g = DWT_GetDeltaMicros(zaman) * 1e-6;
 }
 
@@ -329,14 +326,3 @@ uint32_t DWT_GetDeltaMicros(uint32_t start_time)
     {        return (0xFFFFFFFF - start_time + current_time + 1);    }
 }
 
-/*
-uint32_t Timer_GetElapsed(TIM_HandleTypeDef *htim, uint32_t timer_start) {
-    uint32_t timer_end = __HAL_TIM_GET_COUNTER(htim);  // Timer pointer'ı ile sayaç değeri alınır
-
-    if (timer_end >= timer_start) {
-        return timer_end - timer_start;
-    } else {
-        return (0xFFFFFFFF - timer_start) + timer_end + 1;
-    }
-}
-*/
