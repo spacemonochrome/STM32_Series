@@ -1,0 +1,8 @@
+../Core/Src/main.c:66:19:writeEEPROM	3
+../Core/Src/main.c:86:19:readEEPROM	2
+../Core/Src/main.c:102:6:checkEEPROMConnection	2
+../Core/Src/main.c:126:5:main	9
+../Core/Src/main.c:233:6:SystemClock_Config	3
+../Core/Src/main.c:273:13:MX_I2C1_Init	2
+../Core/Src/main.c:307:13:MX_GPIO_Init	1
+../Core/Src/main.c:343:6:Error_Handler	1
