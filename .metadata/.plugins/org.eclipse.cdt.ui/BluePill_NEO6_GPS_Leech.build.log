@@ -1,0 +1,20 @@
+20:03:42 **** Incremental Build of configuration Debug for project BluePill_NEO6_GPS_Leech ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "BluePill_NEO6_GPS_Leech.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hfk47\STM32CubeIDE\workspace_1.18.1\BluePill_NEO6_GPS_Leech\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_NEO6_GPS_Leech.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BluePill_NEO6_GPS_Leech.elf
+ 
+arm-none-eabi-size  BluePill_NEO6_GPS_Leech.elf 
+arm-none-eabi-objdump -h -S BluePill_NEO6_GPS_Leech.elf  > "BluePill_NEO6_GPS_Leech.list"
+arm-none-eabi-objcopy  -O ihex BluePill_NEO6_GPS_Leech.elf  "BluePill_NEO6_GPS_Leech.hex"
+   text	   data	    bss	    dec	    hex	filename
+  34900	    468	   2204	  37572	   92c4	BluePill_NEO6_GPS_Leech.elf
+Finished building: default.size.stdout
+ 
+Finished building: BluePill_NEO6_GPS_Leech.hex
+ 
+Finished building: BluePill_NEO6_GPS_Leech.list
+ 
+
+20:03:43 Build Finished. 0 errors, 0 warnings. (took 803ms)
+

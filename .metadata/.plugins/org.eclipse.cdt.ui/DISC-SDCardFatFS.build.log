@@ -1,0 +1,10 @@
+01:25:03 **** Incremental Build of configuration Debug for project DISC-SDCardFatFS ****
+make -j16 all 
+arm-none-eabi-size  DISC-SDCardFatFS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25848	     36	  10540	  36424	   8e48	DISC-SDCardFatFS.elf
+Finished building: default.size.stdout
+ 
+
+01:25:03 Build Finished. 0 errors, 0 warnings. (took 193ms)
+

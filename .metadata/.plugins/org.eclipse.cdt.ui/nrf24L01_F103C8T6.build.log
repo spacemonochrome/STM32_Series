@@ -1,0 +1,22 @@
+01:06:17 **** Incremental Build of configuration Debug for project nrf24L01_F103C8T6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:21: warning: unused variable 'val' [-Wunused-variable]
+  150 |             uint8_t val = nrf24_transmit(dataT, sizeof(dataT));
+      |                     ^~~
+arm-none-eabi-gcc -o "nrf24L01_F103C8T6.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hfk47\STM32CubeIDE\workspace_1.18.1\nrf24L01_F103C8T6\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nrf24L01_F103C8T6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nrf24L01_F103C8T6.elf
+ 
+arm-none-eabi-size  nrf24L01_F103C8T6.elf 
+arm-none-eabi-objdump -h -S nrf24L01_F103C8T6.elf  > "nrf24L01_F103C8T6.list"
+   text	   data	    bss	    dec	    hex	filename
+  32420	    508	   1996	  34924	   886c	nrf24L01_F103C8T6.elf
+Finished building: default.size.stdout
+ 
+Finished building: nrf24L01_F103C8T6.list
+ 
+
+01:06:18 Build Finished. 0 errors, 1 warnings. (took 754ms)
+

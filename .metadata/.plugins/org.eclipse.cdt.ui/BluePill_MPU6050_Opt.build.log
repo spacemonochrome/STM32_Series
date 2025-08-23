@@ -1,0 +1,10 @@
+17:20:31 **** Incremental Build of configuration Debug for project BluePill_MPU6050_Opt ****
+make -j16 all 
+arm-none-eabi-size  BluePill_MPU6050_Opt.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18652	    240	   2232	  21124	   5284	BluePill_MPU6050_Opt.elf
+Finished building: default.size.stdout
+ 
+
+17:20:31 Build Finished. 0 errors, 0 warnings. (took 190ms)
+

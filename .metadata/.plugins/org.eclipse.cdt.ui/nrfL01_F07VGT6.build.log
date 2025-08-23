@@ -1,0 +1,66 @@
+23:35:42 **** Incremental Build of configuration Debug for project nrfL01_F07VGT6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:151:13: warning: implicit declaration of function 'gpio_interrupt_init' [-Wimplicit-function-declaration]
+  151 |       res = gpio_interrupt_init();
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:164:11: warning: implicit declaration of function 'gpio_interrupt_deinit' [-Wimplicit-function-declaration]
+  164 |           gpio_interrupt_deinit();
+      |           ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:170:13: warning: implicit declaration of function 'nrf24l01_set_address'; did you mean 'nrf24l01_set_tx_address'? [-Wimplicit-function-declaration]
+  170 |       res = nrf24l01_set_address(&nrf24l01, NRF24L01_MODE_TX, tx_addr, 5);
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             nrf24l01_set_tx_address
+../Core/Src/main.c:173:14: warning: implicit declaration of function 'nrf24l01_set_power'; did you mean 'nrf24l01_set_mode'? [-Wimplicit-function-declaration]
+  173 |       res |= nrf24l01_set_power(&nrf24l01, NRF24L01_OUTPUT_POWER_0_DBM);
+      |              ^~~~~~~~~~~~~~~~~~
+      |              nrf24l01_set_mode
+../Core/Src/main.c:174:14: warning: implicit declaration of function 'nrf24l01_set_channel'; did you mean 'nrf24l01_set_config'? [-Wimplicit-function-declaration]
+  174 |       res |= nrf24l01_set_channel(&nrf24l01, 0x02); // Kanal 2
+      |              ^~~~~~~~~~~~~~~~~~~~
+      |              nrf24l01_set_config
+../Core/Src/main.c:175:14: warning: implicit declaration of function 'nrf24l01_set_auto_ack'; did you mean 'nrf24l01_set_data_rate'? [-Wimplicit-function-declaration]
+  175 |       res |= nrf24l01_set_auto_ack(&nrf24l01, NRF24L01_PIPE_0, 1); // Otomatik ACK
+      |              ^~~~~~~~~~~~~~~~~~~~~
+      |              nrf24l01_set_data_rate
+../Core/Src/main.c:176:14: warning: implicit declaration of function 'nrf24l01_set_payload_length'; did you mean 'nrf24l01_get_rx_payload_width'? [-Wimplicit-function-declaration]
+  176 |       res |= nrf24l01_set_payload_length(&nrf24l01, NRF24L01_PIPE_0, 32); // 32 bayt yük
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |              nrf24l01_get_rx_payload_width
+../Core/Src/main.c:187:13: warning: implicit declaration of function 'nrf24l01_write_payload'; did you mean 'nrf24l01_write_tx_payload'? [-Wimplicit-function-declaration]
+  187 |       res = nrf24l01_write_payload(&nrf24l01, data, strlen((char *)data));
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+      |             nrf24l01_write_tx_payload
+../Core/Src/main.c:216:15: warning: implicit declaration of function 'nrf24l01_read_payload'; did you mean 'nrf24l01_read_rx_payload'? [-Wimplicit-function-declaration]
+  216 |           if (nrf24l01_read_payload(&nrf24l01, &pipe, received_data, &len) == 0)
+      |               ^~~~~~~~~~~~~~~~~~~~~
+      |               nrf24l01_read_rx_payload
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:80:13: warning: 'nrf24l01_callback' defined but not used [-Wunused-function]
+   80 | static void nrf24l01_callback(uint8_t type, uint8_t num, uint8_t *buf, uint8_t len)
+      |             ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "nrfL01_F07VGT6.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\hfk47\STM32CubeIDE\workspace_1.18.1\nrfL01_F07VGT6\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nrfL01_F07VGT6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/driver_nrf24l01_interface.o: in function `nrf24l01_interface_debug_print':
+C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/driver_nrf24l01_interface.c:178:(.text.nrf24l01_interface_debug_print+0x16): undefined reference to `va_start'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/driver_nrf24l01_interface.c:180:(.text.nrf24l01_interface_debug_print+0x3e): undefined reference to `va_end'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:151:(.text.main+0x1a): undefined reference to `gpio_interrupt_init'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:164:(.text.main+0x5a): undefined reference to `gpio_interrupt_deinit'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:170:(.text.main+0x70): undefined reference to `nrf24l01_set_address'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:171:(.text.main+0x84): undefined reference to `nrf24l01_set_address'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:173:(.text.main+0xb8): undefined reference to `nrf24l01_set_power'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:174:(.text.main+0xd4): undefined reference to `nrf24l01_set_channel'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:175:(.text.main+0xf2): undefined reference to `nrf24l01_set_auto_ack'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:176:(.text.main+0x110): undefined reference to `nrf24l01_set_payload_length'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:181:(.text.main+0x13c): undefined reference to `gpio_interrupt_deinit'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:187:(.text.main+0x158): undefined reference to `nrf24l01_write_payload'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:192:(.text.main+0x178): undefined reference to `gpio_interrupt_deinit'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:204:(.text.main+0x1b2): undefined reference to `gpio_interrupt_deinit'
+C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/nrfL01_F07VGT6/Debug/../Core/Src/main.c:216:(.text.main+0x1c8): undefined reference to `nrf24l01_read_payload'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: nrfL01_F07VGT6.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+23:35:43 Build Failed. 16 errors, 10 warnings. (took 696ms)
+

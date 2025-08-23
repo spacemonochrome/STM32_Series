@@ -1,0 +1,12 @@
+23:16:56 **** Incremental Build of configuration Debug for project STM32F4_HAL_ILI9341 ****
+make -j16 all 
+arm-none-eabi-size  STM32F4_HAL_ILI9341.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 195452	    480	   2144	 198076	  305bc	STM32F4_HAL_ILI9341.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy.exe -O ihex "STM32F4_HAL_ILI9341.elf" "STM32F4_HAL_ILI9341.hex"
+ 
+
+23:16:56 Build Finished. 0 errors, 0 warnings. (took 448ms)
+

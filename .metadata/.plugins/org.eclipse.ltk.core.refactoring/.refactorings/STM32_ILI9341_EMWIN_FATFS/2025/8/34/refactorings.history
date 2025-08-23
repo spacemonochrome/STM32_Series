@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;STM32_ILI9341_EMWIN_FATFS/FATFS/Target/user_diski2.c&apos; to &apos;user_diskio.c&apos;" description="Rename resource &apos;user_diski2.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="FATFS/Target/user_diski2.c" name="user_diskio.c" stamp="1755975469984" updateReferences="true"/>
+</session>

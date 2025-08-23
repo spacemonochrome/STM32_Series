@@ -1,0 +1,17 @@
+18:28:28 **** Incremental Build of configuration Debug for project BluePill_SD_Card ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "BluePill_SD_Card.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hfk47\STM32CubeIDE\workspace_1.18.1\BluePill_SD_Card\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_SD_Card.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BluePill_SD_Card.elf
+ 
+arm-none-eabi-size  BluePill_SD_Card.elf 
+arm-none-eabi-objdump -h -S BluePill_SD_Card.elf  > "BluePill_SD_Card.list"
+   text	   data	    bss	    dec	    hex	filename
+  27216	     36	  10516	  37768	   9388	BluePill_SD_Card.elf
+Finished building: default.size.stdout
+ 
+Finished building: BluePill_SD_Card.list
+ 
+
+18:28:29 Build Finished. 0 errors, 0 warnings. (took 643ms)
+

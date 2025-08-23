@@ -1,0 +1,10 @@
+17:23:57 **** Incremental Build of configuration Debug for project DAC_Oscillator ****
+make -j16 all 
+arm-none-eabi-size  DAC_Oscillator.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20912	     12	   2724	  23648	   5c60	DAC_Oscillator.elf
+Finished building: default.size.stdout
+ 
+
+17:23:57 Build Finished. 0 errors, 0 warnings. (took 161ms)
+

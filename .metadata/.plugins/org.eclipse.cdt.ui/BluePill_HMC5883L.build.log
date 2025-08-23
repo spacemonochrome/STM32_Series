@@ -1,0 +1,10 @@
+17:23:57 **** Incremental Build of configuration Debug for project BluePill_HMC5883L ****
+make -j16 all 
+arm-none-eabi-size  BluePill_HMC5883L.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10436	     12	   1676	  12124	   2f5c	BluePill_HMC5883L.elf
+Finished building: default.size.stdout
+ 
+
+17:23:57 Build Finished. 0 errors, 0 warnings. (took 164ms)
+

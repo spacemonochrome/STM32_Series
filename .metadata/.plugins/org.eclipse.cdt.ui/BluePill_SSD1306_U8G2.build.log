@@ -1,0 +1,20 @@
+23:02:02 **** Build of configuration Debug for project BluePill_SSD1306_U8G2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I"C:/Users/hfk47/STM32CubeIDE/workspace_1.18.1/BluePill_SSD1306_U8G2/Drivers/csrc" -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "BluePill_SSD1306_U8G2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hfk47\STM32CubeIDE\workspace_1.18.1\BluePill_SSD1306_U8G2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BluePill_SSD1306_U8G2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BluePill_SSD1306_U8G2.elf
+ 
+arm-none-eabi-size  BluePill_SSD1306_U8G2.elf 
+arm-none-eabi-objdump -h -S BluePill_SSD1306_U8G2.elf  > "BluePill_SSD1306_U8G2.list"
+arm-none-eabi-objcopy  -O binary BluePill_SSD1306_U8G2.elf  "BluePill_SSD1306_U8G2.bin"
+   text	   data	    bss	    dec	    hex	filename
+  17372	     12	   2868	  20252	   4f1c	BluePill_SSD1306_U8G2.elf
+Finished building: default.size.stdout
+ 
+Finished building: BluePill_SSD1306_U8G2.bin
+ 
+Finished building: BluePill_SSD1306_U8G2.list
+ 
+
+23:02:07 Build Finished. 0 errors, 0 warnings. (took 5s.252ms)
+

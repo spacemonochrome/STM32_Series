@@ -1,0 +1,10 @@
+23:47:36 **** Incremental Build of configuration Debug for project F407DISC-SDcard_ILI9341 ****
+make -j16 all 
+arm-none-eabi-size  F407DISC-SDcard_ILI9341.elf 
+   text	   data	    bss	    dec	    hex	filename
+  54940	    284	  43372	  98596	  18124	F407DISC-SDcard_ILI9341.elf
+Finished building: default.size.stdout
+ 
+
+23:47:36 Build Finished. 0 errors, 0 warnings. (took 242ms)
+

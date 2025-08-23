@@ -1,0 +1,10 @@
+02:38:54 **** Incremental Build of configuration Debug for project BluePill_NEO6_GPS ****
+make -j16 all 
+arm-none-eabi-size  BluePill_NEO6_GPS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34676	    468	   2132	  37276	   919c	BluePill_NEO6_GPS.elf
+Finished building: default.size.stdout
+ 
+
+02:38:54 Build Finished. 0 errors, 0 warnings. (took 192ms)
+

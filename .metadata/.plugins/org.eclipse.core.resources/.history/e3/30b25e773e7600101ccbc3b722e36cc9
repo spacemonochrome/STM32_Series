@@ -1,0 +1,54 @@
+#include "nrf24_hal.h"
+extern SPI_HandleTypeDef hspi1;
+// nRF24L01 için GPIO pinlerini yapılandır
+// not: IRQ pini ayrı yapılandırılmalı
+void nRF24_GPIO_Init(void) {
+    GPIO_InitTypeDef PORT = {0};
+
+    // nRF24L01 GPIO ve SPI çevresel birimlerinin saatini etkinleştir
+    RCC->APB2ENR |= nRF24_GPIO_PERIPHERALS; // RCC_APB2ENR_IOPAEN | RCC_APB2ENR_SPI1EN
+
+    // CSN pini yapılandırma (PA4)
+    PORT.Pin = GPIO_PIN_4; // CSN pini
+    PORT.Mode = GPIO_MODE_OUTPUT_PP;
+    PORT.Pull = GPIO_NOPULL;
+    PORT.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &PORT);
+    nRF24_CSN_H;
+
+    // CE pini yapılandırma (PA3)
+    PORT.Pin = GPIO_PIN_3; // CE pini
+    HAL_GPIO_Init(GPIOA, &PORT);
+    nRF24_CE_L;
+
+    // SPI1 pinleri yapılandırma: SCK (PA5), MISO (PA6), MOSI (PA7)
+    PORT.Pin = GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7;
+    PORT.Mode = GPIO_MODE_AF_PP; // HAL için alternatif fonksiyon
+    PORT.Pull = GPIO_NOPULL;
+    PORT.Speed = GPIO_SPEED_FREQ_HIGH; // SPI için yüksek hız
+    HAL_GPIO_Init(GPIOA, &PORT);
+
+    // IRQ pini yapılandırma (PA2, giriş olarak)
+    PORT.Pin = GPIO_PIN_2; // IRQ pini
+    PORT.Mode = GPIO_MODE_INPUT;
+    PORT.Pull = GPIO_PULLUP; // IRQ genellikle aktif-düşük, bu yüzden pull-up
+    HAL_GPIO_Init(GPIOA, &PORT);
+}
+
+// Düşük seviyeli SPI veri gönder/al fonksiyonu
+// input:
+//   data - SPI üzerinden gönderilecek veri
+// return: SPI'dan alınan veri
+uint8_t nRF24_LL_RW(uint8_t data) {
+    uint8_t rx_data;
+
+    // TX tamponu boşalana kadar bekle
+    while (HAL_SPI_GetState(&hspi1) != HAL_SPI_STATE_READY);
+
+    // Bir bayt gönder ve al
+    if (HAL_SPI_TransmitReceive(&hspi1, &data, &rx_data, 1, HAL_MAX_DELAY) != HAL_OK) {
+        Error_Handler(); // Hata yönetimi
+    }
+
+    return rx_data;
+}

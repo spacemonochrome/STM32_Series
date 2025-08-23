@@ -1,0 +1,46 @@
+#include "nrf24_hal.h"
+
+// Configure the GPIO lines of the nRF24L01 transceiver
+// note: IRQ pin must be configured separately
+void nRF24_GPIO_Init(void) {
+    GPIO_InitTypeDef PORT = {0};
+
+    // Enable the nRF24L01 GPIO and SPI peripherals
+    RCC->APB2ENR |= nRF24_GPIO_PERIPHERALS; // e.g., RCC_APB2ENR_IOPAEN | RCC_APB2ENR_SPI1EN
+
+    // Configure CSN pin (e.g., PA4)
+    PORT.Pin = GPIO_PIN_4; // Update to your CSN pin
+    PORT.Mode = GPIO_MODE_OUTPUT_PP;
+    PORT.Pull = GPIO_NOPULL;
+    PORT.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &PORT);
+    nRF24_CSN_H;
+
+    // Configure CE pin (e.g., PA3)
+    PORT.Pin = GPIO_PIN_3; // Update to your CE pin
+    HAL_GPIO_Init(GPIOA, &PORT);
+    nRF24_CE_L;
+
+    // Configure SPI1 pins: SCK (PA5), MISO (PA6), MOSI (PA7)
+    PORT.Pin = GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7;
+    PORT.Mode = GPIO_MODE_AF_PP; // Use HAL macro for alternate function push-pull
+    PORT.Pull = GPIO_NOPULL;
+    PORT.Speed = GPIO_SPEED_FREQ_HIGH; // High speed for SPI
+    HAL_GPIO_Init(GPIOA, &PORT);
+}
+
+// Low level SPI transmit/receive function (hardware dependent)
+// input:
+//   data - value to transmit via SPI
+// return: value received from SPI
+uint8_t nRF24_LL_RW(uint8_t data) {
+    // Wait until TX buffer is empty
+    while (SPI_I2S_GetFlagStatus(nRF24_SPI_PORT, SPI_I2S_FLAG_TXE) == RESET);
+    // Send byte to SPI (TXE cleared)
+    SPI_I2S_SendData(nRF24_SPI_PORT, data);
+    // Wait while receive buffer is empty
+    while (SPI_I2S_GetFlagStatus(nRF24_SPI_PORT, SPI_I2S_FLAG_RXNE) == RESET);
+
+    // Return received byte
+    return (uint8_t)SPI_I2S_ReceiveData(nRF24_SPI_PORT);
+}

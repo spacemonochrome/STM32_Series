@@ -1,0 +1,10 @@
+23:45:56 **** Incremental Build of configuration Debug for project STM32_ILI9341_EMWIN_FATFS ****
+make -j16 all 
+arm-none-eabi-size  STM32_ILI9341_EMWIN_FATFS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53840	    276	  22652	  76768	  12be0	STM32_ILI9341_EMWIN_FATFS.elf
+Finished building: default.size.stdout
+ 
+
+23:45:56 Build Finished. 0 errors, 0 warnings. (took 248ms)
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="MADCTL"/>
+		<item value="FLN"/>
+		<item value="FF_USE"/>
+		<item value="FF_use_"/>
+		<item value=".bss"/>
+		<item value="NRF24L01_COMMAND_R_REGISTER"/>
+		<item value="nrf24l01_interrupt_irq_handler"/>
+		<item value="nrf24l01_gpio_irq_handler"/>
+		<item value="nRF24_GPIO_PERIPHERALS"/>
+		<item value="nRF24_SetRXPipe"/>
+		<item value="nrf24l01_interface_spi_write_read"/>
+		<item value="dt_g"/>
+		<item value="rand()"/>
+		<item value="384"/>
+		<item value="SystemCoreClock"/>
+	</list>
+</section>

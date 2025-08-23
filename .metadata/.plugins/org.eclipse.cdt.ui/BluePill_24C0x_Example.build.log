@@ -1,0 +1,10 @@
+17:24:33 **** Incremental Build of configuration Debug for project BluePill_24C0x_Example ****
+make -j16 all 
+arm-none-eabi-size  BluePill_24C0x_Example.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24716	    480	   1992	  27188	   6a34	BluePill_24C0x_Example.elf
+Finished building: default.size.stdout
+ 
+
+17:24:33 Build Finished. 0 errors, 0 warnings. (took 140ms)
+

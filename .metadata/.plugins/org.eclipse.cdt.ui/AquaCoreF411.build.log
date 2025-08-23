@@ -1,0 +1,10 @@
+16:21:28 **** Incremental Build of configuration Debug for project AquaCoreF411 ****
+make -j16 all 
+arm-none-eabi-size  AquaCoreF411.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19352	    236	   2168	  21756	   54fc	AquaCoreF411.elf
+Finished building: default.size.stdout
+ 
+
+16:21:28 Build Finished. 0 errors, 0 warnings. (took 245ms)
+

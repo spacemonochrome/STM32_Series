@@ -1,0 +1,10 @@
+01:06:18 **** Incremental Build of configuration Debug for project nrf24L01_F407VGT6 ****
+make -j16 all 
+arm-none-eabi-size  nrf24L01_F407VGT6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11508	     20	   1692	  13220	   33a4	nrf24L01_F407VGT6.elf
+Finished building: default.size.stdout
+ 
+
+01:06:18 Build Finished. 0 errors, 0 warnings. (took 189ms)
+

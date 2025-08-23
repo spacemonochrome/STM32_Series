@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;nrfL01_F07VGT6/Core/Src/driver_nrf24l01_interface_template.c&apos; to &apos;driver_nrf24l01_interface.c&apos;" description="Rename resource &apos;driver_nrf24l01_interface_template.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/driver_nrf24l01_interface_template.c" name="driver_nrf24l01_interface.c" stamp="1754672961063" updateReferences="true"/>
+</session>

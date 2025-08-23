@@ -1,0 +1,10 @@
+20:53:03 **** Incremental Build of configuration Debug for project BluePill_STemWin ****
+make -j16 all 
+arm-none-eabi-size  BluePill_STemWin.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49368	    196	  12820	  62384	   f3b0	BluePill_STemWin.elf
+Finished building: default.size.stdout
+ 
+
+20:53:03 Build Finished. 0 errors, 0 warnings. (took 194ms)
+

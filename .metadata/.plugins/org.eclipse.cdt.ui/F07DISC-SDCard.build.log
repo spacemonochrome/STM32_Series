@@ -1,0 +1,10 @@
+16:46:41 **** Incremental Build of configuration Debug for project F07DISC-SDCard ****
+make -j16 all 
+arm-none-eabi-size  F07DISC-SDCard.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25956	     36	  10540	  36532	   8eb4	F07DISC-SDCard.elf
+Finished building: default.size.stdout
+ 
+
+16:46:41 Build Finished. 0 errors, 0 warnings. (took 246ms)
+

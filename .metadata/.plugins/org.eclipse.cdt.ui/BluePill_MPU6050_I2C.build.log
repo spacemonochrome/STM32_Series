@@ -1,0 +1,10 @@
+16:16:51 **** Incremental Build of configuration Debug for project BluePill_MPU6050_I2C ****
+make -j16 all 
+arm-none-eabi-size  BluePill_MPU6050_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    236	   2096	  27168	   6a20	BluePill_MPU6050_I2C.elf
+Finished building: default.size.stdout
+ 
+
+16:16:51 Build Finished. 0 errors, 0 warnings. (took 248ms)
+
