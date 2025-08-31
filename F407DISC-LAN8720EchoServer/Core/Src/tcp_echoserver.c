@@ -231,7 +231,6 @@ static err_t tcp_echoserver_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p
       es->p = p;
   
       /* send back received data */
-      es->p->payload = "STM32F407\r\n";
       tcp_echoserver_send(tpcb, es);
     }
     else
